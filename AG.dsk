@@ -1,0 +1,750 @@
+[Closed Files]
+File_0=SourceModule,'c:\arquivos de programas\borland\cbuilder6\include\stl\_construct.h',0,1,74,1,85,0,0
+File_1=SourceModule,'c:\arquivos de programas\borland\cbuilder6\include\stl\_vector.h',0,1,160,1,171,0,0
+File_2=SourceModule,'C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\GUI\About.cpp',0,1,1,47,7,1,0
+File_3=SourceModule,'c:\ARQUIV~1\borland\CBUILD~1\include\stl\_vector.h',0,1,197,1,213,0,0
+File_4=SourceModule,'c:\ARQUIV~1\borland\CBUILD~1\include\stl\_construct.h',0,1,73,1,85,0,0
+File_5=SourceModule,'c:\ARQUIV~1\borland\CBUILD~1\include\stl\_algobase.h',0,1,133,36,146,0,0
+File_6=SourceModule,'c:\arquivos de programas\borland\cbuilder6\include\stlport\new',0,1,100,32,114,0,0
+File_7=SourceModule,'c:\ARQUIV~1\borland\CBUILD~1\include\stlport\new',0,1,105,1,116,0,0
+File_8=SourceModule,'c:\ARQUIV~1\borland\CBUILD~1\include\stl\_alloc.h',0,1,343,1,350,0,0
+File_9=SourceModule,'C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\..\App\..\Classes\Populacao.cpp',0,1,1,1,1,0,0
+
+[Modules]
+Module0=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\GUI\FormAG.cpp
+Module1=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\App\AppAG.cpp
+Module2=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\GerenteInterfaceAG.cpp
+Module3=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\GerenteInterfaceAG.h
+Module4=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Ponto.cpp
+Module5=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Mutacao.cpp
+Module6=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Mutacao.h
+Module7=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Fitness.cpp
+Module8=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Fitness.h
+Module9=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Crossover.cpp
+Module10=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Crossover.h
+Module11=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Cromossomo.cpp
+Module12=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Cromossomo.h
+Module13=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Calculo.h
+Module14=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Calculo.cpp
+Module15=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\App\AppAG.h
+Module16=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Util\AGUtil.h
+Module17=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\..\App\..\Classes\Populacao.h
+Module18=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Util\AGUtil.cpp
+Module19=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Selecao.cpp
+Module20=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Selecao.h
+Module21=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Populacao.h
+Module22=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Populacao.cpp
+Module23=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Ponto.h
+Module24=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\AG.bpr
+Count=25
+EditWindowCount=1
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\GUI\FormAG.cpp]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\App\AppAG.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\GerenteInterfaceAG.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\GerenteInterfaceAG.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Ponto.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Mutacao.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Mutacao.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Fitness.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Fitness.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Crossover.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Crossover.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Cromossomo.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Cromossomo.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Calculo.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Calculo.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\App\AppAG.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Util\AGUtil.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\..\App\..\Classes\Populacao.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Util\AGUtil.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Selecao.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Selecao.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Populacao.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Populacao.cpp]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Ponto.h]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\AG.bpr]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Arquivos de programas\Borland\CBuilder6\Projects\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+ViewCount=25
+CurrentView=0
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+View5=5
+View6=6
+View7=7
+View8=8
+View9=9
+View10=10
+View11=11
+View12=12
+View13=13
+View14=14
+View15=15
+View16=16
+View17=17
+View18=18
+View19=19
+View20=20
+View21=21
+View22=22
+View23=23
+View24=24
+CodeExplorer=CodeExplorer@EditWindow0
+MessageView=MessageView@EditWindow0
+ClassHierarchy=ClassHierarchy@EditWindow0
+Create=1
+Visible=1
+State=0
+Left=48
+Top=122
+Width=1218
+Height=833
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1210
+ClientHeight=793
+LeftPanelSize=0
+LeftPanelClients=CodeExplorer@EditWindow0
+LeftPanelData=00000400010000000C000000436F64654578706C6F726572000000000000000000000000000000000001000000000000000000000000FFFFFFFF
+RightPanelSize=0
+BottomPanelSize=229
+BottomPanelClients=MessageView@EditWindow0
+BottomPanelData=0000040000000000BA0400000000000002E5000000000000000100000000000000000000000001000000003504000000000000010000000035040000000000000100000000BC040000000000000100000000BA0400000B0000004D65737361676556696577FFFFFFFF
+
+[View0]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\GUI\FormAG.cpp
+CursorX=48
+CursorY=86
+TopLine=76
+LeftCol=1
+
+[View1]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\AG.cpp
+CursorX=5
+CursorY=13
+TopLine=7
+LeftCol=1
+
+[View2]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\App\AppAG.cpp
+CursorX=69
+CursorY=231
+TopLine=213
+LeftCol=1
+
+[View3]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Ponto.h
+CursorX=1
+CursorY=20
+TopLine=10
+LeftCol=1
+
+[View4]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Populacao.cpp
+CursorX=1
+CursorY=27
+TopLine=13
+LeftCol=1
+
+[View5]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Populacao.h
+CursorX=27
+CursorY=31
+TopLine=13
+LeftCol=1
+
+[View6]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Selecao.h
+CursorX=19
+CursorY=17
+TopLine=1
+LeftCol=1
+
+[View7]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Selecao.cpp
+CursorX=77
+CursorY=105
+TopLine=82
+LeftCol=1
+
+[View8]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Util\AGUtil.cpp
+CursorX=52
+CursorY=119
+TopLine=149
+LeftCol=1
+
+[View9]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\..\App\..\Classes\Populacao.h
+CursorX=56
+CursorY=23
+TopLine=10
+LeftCol=1
+
+[View10]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Util\AGUtil.h
+CursorX=11
+CursorY=29
+TopLine=16
+LeftCol=1
+
+[View11]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\App\AppAG.h
+CursorX=33
+CursorY=50
+TopLine=31
+LeftCol=1
+
+[View12]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Calculo.cpp
+CursorX=22
+CursorY=43
+TopLine=25
+LeftCol=1
+
+[View13]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Calculo.h
+CursorX=18
+CursorY=11
+TopLine=4
+LeftCol=1
+
+[View14]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Cromossomo.h
+CursorX=1
+CursorY=1
+TopLine=4
+LeftCol=1
+
+[View15]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Cromossomo.cpp
+CursorX=1
+CursorY=1
+TopLine=4
+LeftCol=1
+
+[View16]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Crossover.h
+CursorX=63
+CursorY=16
+TopLine=4
+LeftCol=1
+
+[View17]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Crossover.cpp
+CursorX=76
+CursorY=24
+TopLine=16
+LeftCol=1
+
+[View18]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Fitness.h
+CursorX=4
+CursorY=33
+TopLine=12
+LeftCol=1
+
+[View19]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Fitness.cpp
+CursorX=39
+CursorY=62
+TopLine=51
+LeftCol=1
+
+[View20]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Mutacao.h
+CursorX=76
+CursorY=11
+TopLine=1
+LeftCol=1
+
+[View21]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Mutacao.cpp
+CursorX=104
+CursorY=23
+TopLine=12
+LeftCol=1
+
+[View22]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Classes\Ponto.cpp
+CursorX=20
+CursorY=40
+TopLine=19
+LeftCol=1
+
+[View23]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\GerenteInterfaceAG.h
+CursorX=1
+CursorY=19
+TopLine=4
+LeftCol=1
+
+[View24]
+Module=C:\Arquivos de programas\Borland\CBuilder6\Projects\AG\Interface\GerenteInterfaceAG.cpp
+CursorX=10
+CursorY=64
+TopLine=49
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=0
+
+[AddressBreakpoints]
+Count=0
+
+[Main Window]
+Create=1
+Visible=1
+State=0
+Left=142
+Top=3
+Width=1046
+Height=130
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1038
+ClientHeight=90
+
+[Components]
+Create=1
+Visible=0
+State=0
+Left=0
+Top=0
+Width=1024
+Height=645
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1016
+ClientHeight=615
+
+[ProjectManager]
+Create=1
+Visible=1
+State=0
+Left=6
+Top=150
+Width=369
+Height=720
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=361
+ClientHeight=690
+TBDockHeight=305
+LRDockWidth=438
+Dockable=1
+
+[CPUWindow]
+Create=1
+Visible=0
+State=0
+Left=525
+Top=127
+Width=533
+Height=353
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=525
+ClientHeight=313
+DumpPane=79
+DisassemblyPane=187
+RegisterPane=231
+FlagPane=64
+
+[DebugLogView]
+Create=1
+Visible=0
+State=0
+Left=304
+Top=239
+Width=415
+Height=301
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=407
+ClientHeight=271
+TBDockHeight=291
+LRDockWidth=417
+Dockable=1
+
+[LocalVarsWindow]
+Create=1
+Visible=0
+State=0
+Left=59
+Top=441
+Width=278
+Height=463
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=270
+ClientHeight=433
+TBDockHeight=433
+LRDockWidth=518
+Dockable=1
+
+[ToDo List]
+Create=1
+Visible=0
+State=0
+Left=278
+Top=260
+Width=468
+Height=256
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=460
+ClientHeight=226
+TBDockHeight=250
+LRDockWidth=470
+Dockable=1
+Column0Width=200
+Column1Width=30
+Column2Width=100
+Column3Width=70
+Column4Width=70
+SortOrder=4
+ShowHints=1
+ShowChecked=1
+
+[FPUWindow]
+Create=1
+Visible=0
+State=0
+Left=0
+Top=110
+Width=800
+Height=545
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=792
+ClientHeight=505
+RegisterPane=147
+FlagPane=72
+
+[WatchWindow]
+Create=1
+Visible=0
+State=0
+Left=1416
+Top=391
+Width=1045
+Height=462
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1037
+ClientHeight=432
+TBDockHeight=84
+LRDockWidth=421
+Dockable=1
+
+[CallStackWindow]
+Create=1
+Visible=0
+State=0
+Left=243
+Top=491
+Width=673
+Height=399
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=665
+ClientHeight=369
+TBDockHeight=330
+LRDockWidth=673
+Dockable=1
+
+[AlignmentPalette]
+Create=1
+Visible=1
+State=0
+Left=1333
+Top=234
+Width=156
+Height=88
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=150
+ClientHeight=60
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=206
+Width=316
+Height=759
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=308
+ClientHeight=729
+TBDockHeight=511
+LRDockWidth=190
+Dockable=1
+SplitPos=130
+ArrangeBy=Name
+SelectedItem=Caption
+ExpandedItems=BorderIcons,Font,Menu,MenuItem
+HiddenCategories=
+
+[BreakpointWindow]
+Create=1
+Visible=0
+State=0
+Left=1517
+Top=579
+Width=874
+Height=189
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=866
+ClientHeight=159
+TBDockHeight=197
+LRDockWidth=737
+Dockable=1
+Column0Width=192
+Column1Width=84
+Column2Width=129
+Column3Width=151
+Column4Width=83
+Column5Width=63
+
+[ThreadStatusWindow]
+Create=1
+Visible=0
+State=0
+Left=90
+Top=437
+Width=753
+Height=249
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=745
+ClientHeight=219
+TBDockHeight=243
+LRDockWidth=755
+Dockable=1
+Column0Width=178
+Column1Width=123
+Column2Width=142
+Column3Width=308
+
+[ModuleWindow]
+Create=1
+Visible=0
+State=0
+Left=481
+Top=422
+Width=638
+Height=355
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=630
+ClientHeight=325
+TBDockHeight=355
+LRDockWidth=638
+Dockable=1
+Column0Width=125
+Column1Width=100
+Column2Width=155
+EntryPointPane=225
+CompUnitPane=104
+
+[ObjectTree]
+Create=1
+Visible=0
+State=0
+Left=1280
+Top=112
+Width=190
+Height=340
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=310
+TBDockHeight=340
+LRDockWidth=190
+Dockable=1
+
+[CodeguardLog]
+Create=1
+Visible=0
+State=0
+Left=191
+Top=108
+Width=448
+Height=190
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=440
+ClientHeight=160
+TBDockHeight=190
+LRDockWidth=448
+Dockable=1
+
+[ClassHierarchy@EditWindow0]
+Create=1
+Visible=0
+State=0
+Left=218
+Top=113
+Width=403
+Height=284
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=395
+ClientHeight=254
+TBDockHeight=284
+LRDockWidth=403
+Dockable=1
+TreeWidth=149
+Col1Width=148
+Col2Width=148
+
+[CodeExplorer@EditWindow0]
+Create=1
+Visible=0
+State=0
+Left=0
+Top=12
+Width=170
+Height=590
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=170
+ClientHeight=590
+TBDockHeight=388
+LRDockWidth=170
+Dockable=1
+ClassViewDisplayMode=0
+
+[MessageView@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=12
+Top=0
+Width=1198
+Height=229
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1198
+ClientHeight=229
+TBDockHeight=229
+LRDockWidth=443
+Dockable=1
+
+[DockHosts]
+DockHostCount=0
+

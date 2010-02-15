@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="AG.exe"/>
+    <OBJFILES value="AG.obj GUI\FormAG.obj GUI\FormAdicionaPontos.obj 
+      Interface\GerenteInterfaceAG.obj App\AppAG.obj Classes\Selecao.obj 
+      Classes\Calculo.obj Classes\Cromossomo.obj Classes\Crossover.obj 
+      Classes\Mutacao.obj Classes\Ponto.obj Classes\Populacao.obj 
+      Util\AGUtil.obj Classes\Fitness.obj GUI\About.obj"/>
+    <RESFILES value="AG.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) GUI\FormAG.dfm GUI\FormAdicionaPontos.dfm GUI\About.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="vclx.lib bcbsmp.lib tee.lib rtl.lib vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib tee.lib bcbsmp.lib vclx.lib"/>
+    <PACKAGES value="indy.bpi twofish_cb6.bpi"/>
+    <PATHCPP value=".;GUI;Interface;App;Classes;Util"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT;USEPACKAGES"/>
+    <MAINSOURCE value="AG.cpp"/>
+    <INCLUDEPATH value="Util;Classes;App;Interface;GUI;..;AG\GUI;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="Util;Classes;App;Interface;GUI;..;AG\GUI;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
+      -tW -tWM"/>
+    <PFLAGS value="-$Y+ -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj $(PACKAGES) sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="AG.res" FORMNAME="" UNITNAME="AG.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="AG.cpp" FORMNAME="" UNITNAME="AG" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GUI\FormAG.cpp" FORMNAME="TelaPrincipal" UNITNAME="FormAG" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GUI\FormAdicionaPontos.cpp" FORMNAME="FormAddPontos" UNITNAME="FormAdicionaPontos" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Interface\GerenteInterfaceAG.cpp" FORMNAME="" UNITNAME="GerenteInterfaceAG" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="App\AppAG.cpp" FORMNAME="" UNITNAME="AppAG" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Classes\Selecao.cpp" FORMNAME="" UNITNAME="Selecao.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Classes\Calculo.cpp" FORMNAME="" UNITNAME="Calculo.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Classes\Cromossomo.cpp" FORMNAME="" UNITNAME="Cromossomo.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Classes\Crossover.cpp" FORMNAME="" UNITNAME="Crossover.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Classes\Mutacao.cpp" FORMNAME="" UNITNAME="Mutacao.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Classes\Ponto.cpp" FORMNAME="" UNITNAME="Ponto.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Classes\Populacao.cpp" FORMNAME="" UNITNAME="Populacao.cpp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Util\AGUtil.cpp" FORMNAME="" UNITNAME="AGUtil" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Classes\Fitness.cpp" FORMNAME="" UNITNAME="Fitness" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="GUI\About.cpp" FORMNAME="AboutBox" UNITNAME="About" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1046
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+C:\ARQUIV~1\Borland\CBUILD~1\Projects\Bpl\PKIECTRLc6.bpl=ImageEn Controls
+C:\ARQUIV~1\Borland\CBUILD~1\Projects\Bpl\PKIEDBc6.bpl=PKIEDBc6
+
+[HistoryLists\hlIncludePath]
+Count=1
+Item0=Util;Classes;App;Interface;GUI;..;AG\GUI;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=Util;Classes;App;Interface;GUI;..;AG\GUI;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>
