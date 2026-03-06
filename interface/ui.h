@@ -2,7 +2,7 @@
 #define UI_H_
 
 enum CrossoverMethod { SEQUENTIAL = 0, RANDOM = 1 };
-enum SelectionMethod { ELITISM = 0, ROULETTE = 1, RANK = 2, STEADY_STATE = 3, HYBRID = 4 };
+enum SelectionMethod { TRUNCATION = 0, ROULETTE = 1, RANK = 2, ELITIST_REPLACEMENT = 3, HYBRID = 4 };
 
 class UI
 {

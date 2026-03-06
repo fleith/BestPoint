@@ -9,10 +9,10 @@ class Selection
 public:
     Selection(Fitness fitness);
 
-    Population ByElitism(Population population);
-    Population BySteadyState(Population population);
+    Population ByTruncation(Population population);
+    Population ByElitistReplacement(Population population);
     Population ByRank(Population population);
-    Population Hybrid(Population population);
+    Population ByHybrid(Population population);
     Population ByRoulette(Population population);
 
 private:

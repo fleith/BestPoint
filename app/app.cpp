@@ -211,8 +211,8 @@ void App::Step()
     Chromosome elite(0, 0);
     Population selected;
     switch (selMethod) {
-        case ELITISM:
-            selected = selection.ByElitism(populations.back());
+        case TRUNCATION:
+            selected = selection.ByTruncation(populations.back());
             elite    = GAUtils::RemoveAndReturnBest(selected, fitness);
             break;
         case ROULETTE:
@@ -221,11 +221,11 @@ void App::Step()
         case RANK:
             selected = selection.ByRank(populations.back());
             break;
-        case STEADY_STATE:
-            selected = selection.BySteadyState(populations.back());
+        case ELITIST_REPLACEMENT:
+            selected = selection.ByElitistReplacement(populations.back());
             break;
         case HYBRID:
-            selected = selection.Hybrid(populations.back());
+            selected = selection.ByHybrid(populations.back());
             break;
     }
 
@@ -235,6 +235,6 @@ void App::Step()
     else
         crossed = Crossover::CrossSequential(selected, crossoverRate, mutationRate);
 
-    if (selMethod == ELITISM) crossed.Add(elite);
+    if (selMethod == TRUNCATION) crossed.Add(elite);
     populations.back() = crossed;
 }

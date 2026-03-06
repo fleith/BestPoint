@@ -29,9 +29,9 @@ static void printHelp(const char* prog)
         "       --miny   <n>     Min Y bound              (default: 0)\n"
         "       --maxy   <n>     Max Y bound              (default: 100)\n"
         "       --points <n>     Number of base points    (default: 5)\n"
-        "       --sel    <type>  Selection method         (default: elitism)\n"
-        "                          elitism | roulette | rank\n"
-        "                          steady-state | hybrid\n"
+        "       --sel    <type>  Selection method         (default: truncation)\n"
+        "                          truncation | roulette | rank\n"
+        "                          elitist-replacement | hybrid\n"
         "       --ctype  <type>  Crossover type           (default: random)\n"
         "                          random | sequential\n"
         "       --fdist  <f>     Distance factor          (default: 1.0)\n"
@@ -103,11 +103,11 @@ static bool parseArgs(int argc, char* argv[])
         }
         else if (strcmp(arg, "--sel") == 0) {
             const char* v = next(arg); if (!v) return false;
-            if      (strcmp(v, "elitism")      == 0) cliConfig.selectionMethod = ELITISM;
-            else if (strcmp(v, "roulette")     == 0) cliConfig.selectionMethod = ROULETTE;
-            else if (strcmp(v, "rank")         == 0) cliConfig.selectionMethod = RANK;
-            else if (strcmp(v, "steady-state") == 0) cliConfig.selectionMethod = STEADY_STATE;
-            else if (strcmp(v, "hybrid")       == 0) cliConfig.selectionMethod = HYBRID;
+            if      (strcmp(v, "truncation")           == 0) cliConfig.selectionMethod = TRUNCATION;
+            else if (strcmp(v, "roulette")             == 0) cliConfig.selectionMethod = ROULETTE;
+            else if (strcmp(v, "rank")                 == 0) cliConfig.selectionMethod = RANK;
+            else if (strcmp(v, "elitist-replacement")  == 0) cliConfig.selectionMethod = ELITIST_REPLACEMENT;
+            else if (strcmp(v, "hybrid")               == 0) cliConfig.selectionMethod = HYBRID;
             else { std::fprintf(stderr, "error: unknown selection type '%s'\n", v); return false; }
         }
         else if (strcmp(arg, "--ctype") == 0) {
@@ -131,12 +131,12 @@ static void separator() { std::printf("=========================================
 static const char* selectionName(SelectionMethod m)
 {
     switch (m) {
-        case ELITISM:     return "elitism";
-        case ROULETTE:    return "roulette";
-        case RANK:        return "rank";
-        case STEADY_STATE:return "steady-state";
-        case HYBRID:      return "hybrid";
-        default:          return "?";
+        case TRUNCATION:          return "truncation";
+        case ROULETTE:            return "roulette";
+        case RANK:                return "rank";
+        case ELITIST_REPLACEMENT: return "elitist-replacement";
+        case HYBRID:              return "hybrid";
+        default:                  return "?";
     }
 }
 

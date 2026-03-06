@@ -11,22 +11,22 @@ static Fitness makeGAFitness() {
     return f;
 }
 
-TEST(GAUtils_LinearSum_Four) {
+TEST(GAUtils_RankSum_Four) {
     // 4 + 3 + 2 + 1 = 10
     Population pop;
     for (int i = 0; i < 4; i++) pop.Add(Chromosome(i * 1.0, i * 1.0));
-    CHECK_EQ(GAUtils::LinearSum(pop), 10);
+    CHECK_EQ(GAUtils::RankSum(pop), 10);
 }
 
-TEST(GAUtils_LinearSum_One) {
+TEST(GAUtils_RankSum_One) {
     Population pop;
     pop.Add(Chromosome(0.0, 0.0));
-    CHECK_EQ(GAUtils::LinearSum(pop), 1);
+    CHECK_EQ(GAUtils::RankSum(pop), 1);
 }
 
-TEST(GAUtils_LinearSum_Zero) {
+TEST(GAUtils_RankSum_Zero) {
     Population pop;
-    CHECK_EQ(GAUtils::LinearSum(pop), 0);
+    CHECK_EQ(GAUtils::RankSum(pop), 0);
 }
 
 TEST(GAUtils_Best_ReturnsHighestFitness) {

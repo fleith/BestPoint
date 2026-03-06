@@ -14,7 +14,7 @@ struct CLIConfig {
     double distanceFactor    = 1.0;
     double distributionFactor = 1.0;
     CrossoverMethod crossoverMethod = RANDOM;
-    SelectionMethod selectionMethod = ELITISM;
+    SelectionMethod selectionMethod = TRUNCATION;
 };
 
 extern CLIConfig cliConfig;

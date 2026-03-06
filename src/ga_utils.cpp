@@ -59,14 +59,14 @@ double GAUtils::TotalFitness(Population& pop, Fitness& fit)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static int linearSum(int n)
+static int rankSum(int n)
 {
-    return n ? n + linearSum(n - 1) : 0;
+    return n ? n + rankSum(n - 1) : 0;
 }
 
-int GAUtils::LinearSum(Population& pop)
+int GAUtils::RankSum(Population& pop)
 {
-    return linearSum(pop.Size());
+    return rankSum(pop.Size());
 }
 
 ////////////////////////////////////////////////////////////////////////////////

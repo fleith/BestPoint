@@ -18,12 +18,12 @@ static Population makeSelPop(int n = 10) {
     return p;
 }
 
-TEST(Selection_ByElitism_PreservesSize) {
+TEST(Selection_ByTruncation_PreservesSize) {
     Fitness f = makeSelFitness();
     Selection sel(f);
     Population pop = makeSelPop();
     int sz = pop.Size();
-    Population result = sel.ByElitism(pop);
+    Population result = sel.ByTruncation(pop);
     CHECK_EQ(result.Size(), sz);
 }
 
@@ -45,32 +45,32 @@ TEST(Selection_ByRank_PreservesSize) {
     CHECK_EQ(result.Size(), sz);
 }
 
-TEST(Selection_BySteadyState_PreservesSize) {
+TEST(Selection_ByElitistReplacement_PreservesSize) {
     Fitness f = makeSelFitness();
     Selection sel(f);
     Population pop = makeSelPop(20); // needs at least 20 for 5% = 1
     int sz = pop.Size();
-    Population result = sel.BySteadyState(pop);
+    Population result = sel.ByElitistReplacement(pop);
     CHECK_EQ(result.Size(), sz);
 }
 
-TEST(Selection_Hybrid_PreservesSize) {
+TEST(Selection_ByHybrid_PreservesSize) {
     Fitness f = makeSelFitness();
     Selection sel(f);
     Population pop = makeSelPop();
     int sz = pop.Size();
-    Population result = sel.Hybrid(pop);
+    Population result = sel.ByHybrid(pop);
     CHECK_EQ(result.Size(), sz);
 }
 
-TEST(Selection_ByElitism_BestIsIncluded) {
+TEST(Selection_ByTruncation_BestIsIncluded) {
     Fitness f = makeSelFitness();
     Selection sel(f);
     Population pop = makeSelPop(9); // divisible by 3
     // chromosome closest to (50,50) and (70,30) is around (50,40) or (60,40)
     // our population has (50,50) which is closest
     double bestFitnessBefore = f.Evaluate(pop[5]); // (50,50)
-    Population result = sel.ByElitism(pop);
+    Population result = sel.ByTruncation(pop);
     // at least one individual in result must have fitness >= best before
     bool foundGood = false;
     for (int i = 0; i < result.Size(); i++) {

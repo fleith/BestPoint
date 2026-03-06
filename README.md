@@ -96,9 +96,9 @@ Options:
        --miny   <n>     Min Y bound              (default: 0)
        --maxy   <n>     Max Y bound              (default: 100)
        --points <n>     Number of base points    (default: 5)
-       --sel    <type>  Selection method         (default: elitism)
-                          elitism | roulette | rank
-                          steady-state | hybrid
+       --sel    <type>  Selection method         (default: truncation)
+                          truncation | roulette | rank
+                          elitist-replacement | hybrid
        --ctype  <type>  Crossover type           (default: random)
                           random | sequential
        --fdist  <f>     Distance factor          (default: 1.0)
@@ -118,8 +118,11 @@ BestPoint.exe -p 100 -g 500 --maxx 500 --maxy 500 --points 10 --sel roulette
 REM Emphasise spread over distance
 BestPoint.exe --fdist 0.5 --fdist2 2.0
 
-REM Steady-state selection, sequential crossover
-BestPoint.exe --sel steady-state --ctype sequential
+REM Elitist replacement, sequential crossover
+BestPoint.exe --sel elitist-replacement --ctype sequential
+
+REM Hybrid: truncation elite + roulette fill
+BestPoint.exe --sel hybrid
 ```
 
 ### Output
@@ -135,7 +138,7 @@ BestPoint.exe --sel steady-state --ctype sequential
   Bounds X       : [0, 100]
   Bounds Y       : [0, 100]
   Base points    : 5
-  Selection      : elitism
+  Selection      : truncation
   Crossover type : random
   Dist factor    : 1.00
   Distr factor   : 1.00
@@ -161,13 +164,13 @@ BestPoint.exe --sel steady-state --ctype sequential
 
 ## Selection Methods
 
-| Name           | Description |
-|----------------|-------------|
-| `elitism`      | Top 1/3 survive; remainder filled randomly. Best individual always carried over. |
-| `roulette`     | Roulette-wheel (fitness-proportionate) selection. |
-| `rank`         | Rank-based selection — higher-ranked individuals have proportionally more chances. |
-| `steady-state` | Bottom 5% replaced by copies of the top 5%. |
-| `hybrid`       | Top 1/3 duplicated, then random fill. |
+| Name                  | Literature term | Description |
+|-----------------------|-----------------|-------------|
+| `truncation`          | Truncation Selection (Mühlenbein 1993) | Top 1/3 survive deterministically; remainder re-sampled randomly. Best individual always carried over via elitism. |
+| `roulette`            | Fitness-Proportionate Selection / FPS (Holland 1975) | Each individual's selection probability is proportional to its fitness. |
+| `rank`                | Linear Rank Selection (Baker 1985) | Selection probability proportional to rank, not raw fitness — avoids dominance by a single high-fitness individual. |
+| `elitist-replacement` | Elitist Replacement | Bottom 5% replaced by copies of the top 5%. A replacement strategy rather than a full selection method. |
+| `hybrid`              | Hybrid (Truncation + FPS) | Top 1/3 preserved by truncation; remaining 2/3 filled by roulette-wheel selection — combines two literature methods. |
 
 ---
 

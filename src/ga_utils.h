@@ -9,7 +9,7 @@
 class GAUtils
 {
 public:
-    static int    LinearSum(Population& pop);
+    static int    RankSum(Population& pop);
 
     static double BestFitness(Population& pop, Fitness& fit);
     static double WorstFitness(Population& pop, Fitness& fit);
