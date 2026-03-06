@@ -1,16 +1,16 @@
 CXX      = clang++
-CXXFLAGS = -std=c++11 -Wall -IClasses -IUtil -IApp -IInterface -ICLI
+CXXFLAGS = -std=c++11 -Wall -Isrc -IApp -IInterface -ICLI
 
 SRCS = \
-	Classes/Chromosome.cpp \
-	Classes/Point.cpp \
-	Classes/Population.cpp \
-	Classes/Fitness.cpp \
-	Classes/MathUtils.cpp \
-	Classes/Selection.cpp \
-	Classes/Crossover.cpp \
-	Classes/Mutation.cpp \
-	Util/GAUtils.cpp \
+	src/Chromosome.cpp \
+	src/Point.cpp \
+	src/Population.cpp \
+	src/Fitness.cpp \
+	src/MathUtils.cpp \
+	src/Selection.cpp \
+	src/Crossover.cpp \
+	src/Mutation.cpp \
+	src/GAUtils.cpp \
 	App/App.cpp \
 	Interface/UICli.cpp \
 	CLI/main.cpp
