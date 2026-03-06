@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up MSVC (x64)
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Build tests
+        run: |
+          cl.exe /std:c++14 /EHsc /W2 /nologo `
+            /Isrc /Itests `
+            src\chromosome.cpp `
+            src\point.cpp `
+            src\population.cpp `
+            src\fitness.cpp `
+            src\math_utils.cpp `
+            src\selection.cpp `
+            src\crossover.cpp `
+            src\mutation.cpp `
+            src\ga_utils.cpp `
+            tests\test_chromosome.cpp `
+            tests\test_point.cpp `
+            tests\test_mathutils.cpp `
+            tests\test_population.cpp `
+            tests\test_fitness.cpp `
+            tests\test_selection.cpp `
+            tests\test_crossover.cpp `
+            tests\test_mutation.cpp `
+            tests\test_gautils.cpp `
+            tests\tests_main.cpp `
+            /Fe:run_tests.exe
+        shell: pwsh
+
+      - name: Run tests
+        run: .\run_tests.exe
+        shell: pwsh
