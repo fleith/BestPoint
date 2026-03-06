@@ -32,11 +32,14 @@ public:
 
    void CMDGerarPontosBase();
 
+   Cromossomo CMDGetMelhorIndividuo();
+   int        CMDGetNumeroPontosBase();
+   Ponto      CMDGetPontoBase(int i);
+
 private:
    Fitness fitness;
 
 	std::vector<Populacao> populacoes;
-   std::vector<Populacao>::iterator itPopulacao;
 
 	double maximoX;
 	double minimoX;

@@ -38,9 +38,9 @@ double Calculo::DesvioMedio(std::vector<double>& distancias)
    for(std::vector<double>::iterator it= distancias.begin(); it != distancias.end(); it++) {
       somaDesvio+= fabs((*it) - mediaDistancias);
    }
-   //double desvioMedio= somaDesvio / distancias.size();
+   double desvioMedio= somaDesvio / distancias.size();
 
-   return somaDesvio;//desvioMedio;
+   return desvioMedio;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

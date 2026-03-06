@@ -68,7 +68,6 @@ void AppAG::CMDGeraPopulacaoAuto()
 
    populacoes.clear();
 	populacoes.push_back(popInicial);
-   itPopulacao= populacoes.begin();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -118,7 +117,7 @@ void AppAG::CMDExecutaTodasGeracoes()
 {
 	if(integridadeOk == false) return;
 
-   for (int i= 1; i <= numeroMaxGeracoes; i++) {
+   while (numeroGeracoesExecutadas > 0) {
       CMDExecutaUmaGeracao();
    }
 }
@@ -186,6 +185,29 @@ void AppAG::CMDGerarPontosBase()
       fitness.InserePonto(AGUtil::GeraPontoAleatorio(minimoX,maximoX,
                                                      minimoY,maximoY));
    }   
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+Cromossomo AppAG::CMDGetMelhorIndividuo()
+{
+   if (populacoes.empty() || populacoes.back().NumeroDeIndividuos() == 0)
+      return Cromossomo(0, 0);
+   return AGUtil::MelhorIndividuo(populacoes.back(), fitness);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+int AppAG::CMDGetNumeroPontosBase()
+{
+   return fitness.NumeroDePontos();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+Ponto AppAG::CMDGetPontoBase(int i)
+{
+   return fitness[i];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -259,7 +281,7 @@ void AppAG::ExecutaPassosAG()
 
    if (tpSel == ELITISMO) popCruzada.InsereIndividuo(melhor);
    //AGUtil::RetiraEColocaElitista(popCruzada,popElitista,fitness);
-   populacoes.push_back(popCruzada);
+   populacoes.back()= popCruzada;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

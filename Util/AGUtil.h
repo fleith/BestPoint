@@ -17,7 +17,7 @@ class AGUtil
 {
 public:
 
-   static int Fatorial(Populacao& pop);
+   static int SomaLinear(Populacao& pop);
    static double FitnessMelhorIndividuo(Populacao& pop,Fitness& fit);
    static double FitnessPiorIndividuo(Populacao& pop,Fitness& fit);
    static double FitnessMediaIndividuos(Populacao& pop,Fitness& fit);

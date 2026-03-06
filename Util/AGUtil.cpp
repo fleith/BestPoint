@@ -81,21 +81,21 @@ double AGUtil::FitnessSomaDosFitness(Populacao&pop,Fitness& fit)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-static int fatorial(int value)
+static int somaLinear(int value)
 {
    if (value)
-      return (value + fatorial(value - 1));
+      return (value + somaLinear(value - 1));
    else
       return value;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-int AGUtil::Fatorial(Populacao& pop)
+int AGUtil::SomaLinear(Populacao& pop)
 {
-  int numFat= pop.NumeroDeIndividuos();
+  int n= pop.NumeroDeIndividuos();
 
-  return fatorial(numFat);
+  return somaLinear(n);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
