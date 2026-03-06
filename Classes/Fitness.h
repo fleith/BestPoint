@@ -1,44 +1,35 @@
-/*
- * Fitness.h
- *
- *  Created on: Jul 3, 2008
- *      Author: alvaro
- */
-
 #ifndef FITNESS_H_
 #define FITNESS_H_
 
 #include <vector>
-#include "Ponto.h"
-#include "Cromossomo.h"
+#include "Point.h"
+#include "Chromosome.h"
 
 class Fitness
 {
 public:
-	~Fitness();
-	Fitness();
+    ~Fitness();
+    Fitness();
 
-	void InserePonto(Ponto pt);
+    void  AddPoint(Point pt);
+    int   PointCount()       { return points.size(); }
+    void  ClearPoints()      { points.clear(); }
+    Point operator[](int i)  { return points[i]; }
 
-   int NumeroDePontos() { return pontos.size(); }
-   void ExcluirPontos() { pontos.clear(); }
-   Ponto operator[](int pos) { return pontos[pos]; }
+    double Evaluate(Chromosome& chromosome);
 
-	double FitnessCromossomo(Cromossomo& cromossomo);
+    bool operator()(Chromosome& a, Chromosome& b);
 
-	bool operator() (Cromossomo& A,Cromossomo& B);
-
-   void SetFatorDistancia(double fator);
-   void SetFatotDistribuicao(double fator);
-   void SetNumeroNormalizador(double numero);
+    void SetDistanceFactor(double factor);
+    void SetDistributionFactor(double factor);
+    void SetNormalizer(double value);
 
 private:
-   std::vector<Ponto> pontos;
+    std::vector<Point> points;
 
-   double fatorDistancia;
-   double fatorDistribuicao;
-
-   double normalizador;
+    double distanceFactor;
+    double distributionFactor;
+    double normalizer;
 };
 
 #endif /* FITNESS_H_ */

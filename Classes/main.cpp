@@ -1,47 +1,47 @@
 /*
- * main.cpp
- *
- *  Created on: Jul 3, 2008
- *      Author: alvaro
+ * Classes/main.cpp — standalone test entry point (no GUI, no App layer)
  */
 
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
-#include "Cromossomo.h"
+#include "Chromosome.h"
 #include "Crossover.h"
 #include "Fitness.h"
-#include "Mutacao.h"
-#include "Ponto.h"
-#include "Populacao.h"
-#include "Selecao.h"
+#include "Mutation.h"
+#include "Point.h"
+#include "Population.h"
+#include "Selection.h"
 
-int main(int argc,char* argv[])
+int main(int argc, char* argv[])
 {
-	srand(time(0));
+    srand(time(0));
 
-	Cromossomo c1(1,40);
-	Cromossomo c2(10,28);
-	Cromossomo c3(32,15);
-	Cromossomo c4(72,90);
+    Chromosome c1(1,  40);
+    Chromosome c2(10, 28);
+    Chromosome c3(32, 15);
+    Chromosome c4(72, 90);
 
-	Ponto p1(50,50);
-	Ponto p2(70,70);
+    Point p1(50, 50);
+    Point p2(70, 70);
 
-	Populacao pop;
-	pop.InsereIndividuo(c1);
-	pop.InsereIndividuo(c2);
-	pop.InsereIndividuo(c3);
-	pop.InsereIndividuo(c4);
+    Population pop;
+    pop.Add(c1);
+    pop.Add(c2);
+    pop.Add(c3);
+    pop.Add(c4);
 
-	Fitness fit;
-	fit.InserePonto(p1);
+    Fitness fit;
+    fit.AddPoint(p1);
+    fit.SetDistanceFactor(1.0);
+    fit.SetDistributionFactor(1.0);
+    fit.SetNormalizer(200.0);
 
-	Selecao seleciona(fit);
-	Populacao selecionados= seleciona.SelecionaPorElitismo(pop);
+    Selection sel(fit);
+    Population selected = sel.ByElitism(pop);
 
+    std::cout << "Selected " << selected.Size() << " individuals." << std::endl;
 
-
-	//Cromossomo csaida= Crossover::Cruza(crom1,crom2);
-	//Cromossomo mutado= Mutacao::Mutar(csaida);
-
+    return 0;
 }

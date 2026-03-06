@@ -1,81 +1,39 @@
-/*
- * Fitness.cpp
- *
- *  Created on: Jul 3, 2008
- *      Author: alvaro
- */
 #include "Fitness.h"
+#include "MathUtils.h"
 
-#include "Calculo.h"
+Fitness::~Fitness() {}
 
-////////////////////////////////////////////////////////////////////////////////
+Fitness::Fitness() {}
 
-Fitness::~Fitness()
+void Fitness::AddPoint(Point pt)
 {
+    points.push_back(pt);
 }
 
-////////////////////////////////////////////////////////////////////////////////
+void Fitness::SetDistanceFactor(double factor)      { distanceFactor = factor; }
+void Fitness::SetDistributionFactor(double factor)  { distributionFactor = factor; }
+void Fitness::SetNormalizer(double value)           { normalizer = value; }
 
-Fitness::Fitness()
+double Fitness::Evaluate(Chromosome& chromosome)
 {
+    Point pos(chromosome);
+
+    double totalDist = 0;
+    std::vector<double> distances;
+    for (std::vector<Point>::iterator it = points.begin(); it != points.end(); it++) {
+        double dist = MathUtils::Distance(*it, pos);
+        distances.push_back(dist);
+        totalDist += dist;
+    }
+
+    double meanDev   = MathUtils::MeanDeviation(distances);
+    double numerator = normalizer * (points.size() * 2);
+    double score     = numerator / ((totalDist * distanceFactor) + (meanDev * distributionFactor));
+
+    return score;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
-void Fitness::InserePonto(Ponto pt)
+bool Fitness::operator()(Chromosome& a, Chromosome& b)
 {
-	pontos.push_back(pt);
+    return Evaluate(a) > Evaluate(b);
 }
-
-////////////////////////////////////////////////////////////////////////////////
-
-
-void Fitness::SetFatorDistancia(double fator)
-{
-   fatorDistancia= fator;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-void Fitness::SetFatotDistribuicao(double fator)
-{
-   fatorDistribuicao= fator;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-void Fitness::SetNumeroNormalizador(double numero)
-{
-   normalizador= numero;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-double Fitness::FitnessCromossomo(Cromossomo & cromossomo)
-{
-	Ponto posicaoCromossomo(cromossomo);
-
-	double somaDistancias= 0;
-   std::vector<double> distancias;
-	for(std::vector<Ponto>::iterator it= pontos.begin(); it != pontos.end(); it++) {
-		 double distanciaPonto= Calculo::DistanciaPontos((*it),posicaoCromossomo);
-       distancias.push_back(distanciaPonto);
-       somaDistancias+= distanciaPonto;
-	}
-
-   double desvioMedio= Calculo::DesvioMedio(distancias);
-   double numerador= normalizador * (pontos.size() * 2);
-	double maiorMelhor= numerador/((somaDistancias * fatorDistancia) + (desvioMedio * fatorDistribuicao));
-
-	return maiorMelhor;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
-bool Fitness::operator ()(Cromossomo & A, Cromossomo & B)
-{
-	return FitnessCromossomo(A) > FitnessCromossomo(B);
-}
-
-////////////////////////////////////////////////////////////////////////////////
-

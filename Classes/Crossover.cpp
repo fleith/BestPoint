@@ -1,136 +1,112 @@
-/*
- * Crossover.cpp
- *
- *  Created on: Jul 3, 2008
- *      Author: alvaro
- */
-
 #include "Crossover.h"
-
-//#include <vcl.h>
-#include "Math.h"
+#include <cmath>
 #include <stdlib.h>
-#include "Mutacao.h"
+#include "Mutation.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Populacao Crossover::CruzaAleatoria(Populacao pop,int taxaCrossover,int taxaMutacao)
+Population Crossover::CrossRandom(Population pop, int crossoverRate, int mutationRate)
 {
-   Populacao novaPop;
+    Population newPop;
 
-   while (pop.NumeroDeIndividuos()) {
-      int valorSorteado= rand() % 101;
+    while (pop.Size()) {
+        int roll = rand() % 101;
 
-      Cromossomo cromossomoA= pop.individuos.front();
-      pop.individuos.erase(pop.individuos.begin());
+        Chromosome parentA = pop.individuals.front();
+        pop.individuals.erase(pop.individuals.begin());
 
-      if (pop.NumeroDeIndividuos()) {
-         int elementoSort= rand() % pop.individuos.size();
-         Cromossomo cromossomoB= pop.individuos.at(elementoSort);
-         pop.individuos.erase(pop.individuos.begin() + elementoSort);
-         if (valorSorteado < taxaCrossover) {
-            Cromossomo newA= Cruza(cromossomoA,cromossomoB);
-            Cromossomo newB= Cruza(cromossomoB,cromossomoA);
+        if (pop.Size()) {
+            int idx = rand() % pop.individuals.size();
+            Chromosome parentB = pop.individuals.at(idx);
+            pop.individuals.erase(pop.individuals.begin() + idx);
 
-            int sorteio= (rand() % 101);
-            newA= ( sorteio < taxaMutacao ) ?  Mutacao::Mutar(newA): newA;
-            sorteio= (rand() % 101);
-            newB= (sorteio < taxaMutacao)?  Mutacao::Mutar(newB): newB;
+            if (roll < crossoverRate) {
+                Chromosome childA = Cross(parentA, parentB);
+                Chromosome childB = Cross(parentB, parentA);
 
-            novaPop.InsereIndividuo(newA);
-            novaPop.InsereIndividuo(newB);
-         } else {
-            novaPop.InsereIndividuo(cromossomoA);
-            novaPop.InsereIndividuo(cromossomoB);
-         }
-      } else {
-         Cromossomo cromossomoB= cromossomoA;
-         if (valorSorteado < taxaCrossover) {
-            Cromossomo newA= Cruza(cromossomoA,cromossomoB);
-            int sorteio= (rand() % 101);
-            newA= (sorteio < taxaMutacao)?  Mutacao::Mutar(newA): newA;
+                childA = (rand() % 101 < mutationRate) ? Mutation::Mutate(childA) : childA;
+                childB = (rand() % 101 < mutationRate) ? Mutation::Mutate(childB) : childB;
 
-            novaPop.InsereIndividuo(newA);
-         } else {
-            novaPop.InsereIndividuo(cromossomoA);
-         }
-      }
-   }
+                newPop.Add(childA);
+                newPop.Add(childB);
+            } else {
+                newPop.Add(parentA);
+                newPop.Add(parentB);
+            }
+        } else {
+            if (roll < crossoverRate) {
+                Chromosome childA = Cross(parentA, parentA);
+                childA = (rand() % 101 < mutationRate) ? Mutation::Mutate(childA) : childA;
+                newPop.Add(childA);
+            } else {
+                newPop.Add(parentA);
+            }
+        }
+    }
 
-   return novaPop;
+    return newPop;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Populacao Crossover::CruzaSequencial(Populacao pop,int taxaCrossover,int taxaMutacao)
+Population Crossover::CrossSequential(Population pop, int crossoverRate, int mutationRate)
 {
-   Populacao novaPop;
+    Population newPop;
 
-   while (pop.NumeroDeIndividuos()) {
-      int valorSorteado= rand() % 101;
+    while (pop.Size()) {
+        int roll = rand() % 101;
 
-      Cromossomo cromossomoA= pop.individuos.front();
-      pop.individuos.erase(pop.individuos.begin());
+        Chromosome parentA = pop.individuals.front();
+        pop.individuals.erase(pop.individuals.begin());
 
-      if (pop.NumeroDeIndividuos()) {
-         Cromossomo cromossomoB= pop.individuos.front();
-         pop.individuos.erase(pop.individuos.begin());
-         if (valorSorteado < taxaCrossover) {
-            Cromossomo newA= Cruza(cromossomoA,cromossomoB);
-            Cromossomo newB= Cruza(cromossomoB,cromossomoA);
+        if (pop.Size()) {
+            Chromosome parentB = pop.individuals.front();
+            pop.individuals.erase(pop.individuals.begin());
 
-            int sorteio= (rand() % 101);
-            newA= ( sorteio < taxaMutacao ) ?  Mutacao::Mutar(newA): newA;
-            sorteio= (rand() % 101);
-            newB= (sorteio < taxaMutacao)?  Mutacao::Mutar(newB): newB;
+            if (roll < crossoverRate) {
+                Chromosome childA = Cross(parentA, parentB);
+                Chromosome childB = Cross(parentB, parentA);
 
-            novaPop.InsereIndividuo(newA);
-            novaPop.InsereIndividuo(newB);
-         } else {
-            novaPop.InsereIndividuo(cromossomoA);
-            novaPop.InsereIndividuo(cromossomoB);
-         }
-      } else {
-         Cromossomo cromossomoB= cromossomoA;
-         if (valorSorteado < taxaCrossover) {
-            Cromossomo newA= Cruza(cromossomoA,cromossomoB);
-            int sorteio= (rand() % 101);
-            newA= (sorteio < taxaMutacao)?  Mutacao::Mutar(newA): newA;
+                childA = (rand() % 101 < mutationRate) ? Mutation::Mutate(childA) : childA;
+                childB = (rand() % 101 < mutationRate) ? Mutation::Mutate(childB) : childB;
 
-            novaPop.InsereIndividuo(newA);
-         } else {
-            novaPop.InsereIndividuo(cromossomoA);
-         }
-      }
-   }
+                newPop.Add(childA);
+                newPop.Add(childB);
+            } else {
+                newPop.Add(parentA);
+                newPop.Add(parentB);
+            }
+        } else {
+            if (roll < crossoverRate) {
+                Chromosome childA = Cross(parentA, parentA);
+                childA = (rand() % 101 < mutationRate) ? Mutation::Mutate(childA) : childA;
+                newPop.Add(childA);
+            } else {
+                newPop.Add(parentA);
+            }
+        }
+    }
 
-   return novaPop;
+    return newPop;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-Cromossomo Crossover::Cruza(Cromossomo individuoA,Cromossomo individuoB)
+Chromosome Crossover::Cross(Chromosome parentA, Chromosome parentB)
 {
-   int posAX= static_cast<int>(individuoA.PosicaoX());
-   int posAY= static_cast<int>(individuoA.PosicaoY());
-   int posBX= static_cast<int>(individuoB.PosicaoX());
-   int posBY= static_cast<int>(individuoB.PosicaoY());
-	int deltaX= abs(posAX - posBX);
-	int deltaY= abs(posAY - posBY);
+    int ax = static_cast<int>(parentA.X());
+    int ay = static_cast<int>(parentA.Y());
+    int bx = static_cast<int>(parentB.X());
+    int by = static_cast<int>(parentB.Y());
 
-	int acrescentarMenorX= (deltaX) ? rand() % deltaX : 0;
-	int acrescentarMenorY= (deltaY)? rand() % deltaY : 0;
+    int deltaX = abs(ax - bx);
+    int deltaY = abs(ay - by);
 
-	double novaPosicaoX= (individuoA.PosicaoX() < individuoB.PosicaoX()) ?
-								(individuoA.PosicaoX() + acrescentarMenorX) :
-								(individuoB.PosicaoX() + acrescentarMenorX);
+    int offsetX = deltaX ? rand() % deltaX : 0;
+    int offsetY = deltaY ? rand() % deltaY : 0;
 
-	double novaPosicaoY= (individuoA.PosicaoY() < individuoB.PosicaoY()) ?
-								(individuoA.PosicaoY() + acrescentarMenorY) :
-								(individuoB.PosicaoY() + acrescentarMenorY);
+    double newX = (parentA.X() < parentB.X()) ? (parentA.X() + offsetX) : (parentB.X() + offsetX);
+    double newY = (parentA.Y() < parentB.Y()) ? (parentA.Y() + offsetY) : (parentB.Y() + offsetY);
 
-	return Cromossomo(novaPosicaoX,novaPosicaoY);
+    return Chromosome(newX, newY);
 }
-
-////////////////////////////////////////////////////////////////////////////////
-

@@ -5,17 +5,17 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SRCS
-    Classes/Cromossomo.cpp
-    Classes/Ponto.cpp
-    Classes/Populacao.cpp
+    Classes/Chromosome.cpp
+    Classes/Point.cpp
+    Classes/Population.cpp
     Classes/Fitness.cpp
-    Classes/Calculo.cpp
-    Classes/Selecao.cpp
+    Classes/MathUtils.cpp
+    Classes/Selection.cpp
     Classes/Crossover.cpp
-    Classes/Mutacao.cpp
-    Util/AGUtil.cpp
-    App/AppAG.cpp
-    Interface/GerenteInterfaceCLI.cpp
+    Classes/Mutation.cpp
+    Util/GAUtils.cpp
+    App/App.cpp
+    Interface/UICli.cpp
     CLI/main.cpp
 )
 

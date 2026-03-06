@@ -1,20 +1,20 @@
 #ifndef CLICONFIG_H_
 #define CLICONFIG_H_
 
-#include "../Interface/GerenteInterfaceAG.h"
+#include "UI.h"
 
 struct CLIConfig {
-    int taxaCrossover     = 70;
-    int taxaMutacao       = 10;
-    int tamanhoPopulacao  = 50;
-    int numeroMaxGeracoes = 100;
+    int crossoverRate    = 70;
+    int mutationRate     = 10;
+    int populationSize   = 50;
+    int maxGenerations   = 100;
     int maxX = 100, minX = 0;
     int maxY = 100, minY = 0;
-    int numeroPontosBase  = 5;
-    double fatorDistancia    = 1.0;
-    double fatorDistribuicao = 1.0;
-    TipoCross   tipoCrossover = ALEATORIO;
-    TipoSelecao tipoSelecao   = ELITISMO;
+    int basePointCount   = 5;
+    double distanceFactor    = 1.0;
+    double distributionFactor = 1.0;
+    CrossoverMethod crossoverMethod = RANDOM;
+    SelectionMethod selectionMethod = ELITISM;
 };
 
 extern CLIConfig cliConfig;
