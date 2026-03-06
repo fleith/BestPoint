@@ -5,25 +5,25 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SRCS
-    src/Chromosome.cpp
-    src/Point.cpp
-    src/Population.cpp
-    src/Fitness.cpp
-    src/MathUtils.cpp
-    src/Selection.cpp
-    src/Crossover.cpp
-    src/Mutation.cpp
-    src/GAUtils.cpp
-    App/App.cpp
-    Interface/UICli.cpp
-    CLI/main.cpp
+    src/chromosome.cpp
+    src/point.cpp
+    src/population.cpp
+    src/fitness.cpp
+    src/math_utils.cpp
+    src/selection.cpp
+    src/crossover.cpp
+    src/mutation.cpp
+    src/ga_utils.cpp
+    app/app.cpp
+    interface/ui_cli.cpp
+    cli/main.cpp
 )
 
 add_executable(BestPoint ${SRCS})
 
 target_include_directories(BestPoint PRIVATE
     src
-    App
-    Interface
-    CLI
+    app
+    interface
+    cli
 )

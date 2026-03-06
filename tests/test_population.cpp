@@ -1,5 +1,5 @@
-#include "TestRunner.h"
-#include "Population.h"
+#include "test_runner.h"
+#include "population.h"
 
 TEST(Population_InitiallyEmpty) {
     Population p;

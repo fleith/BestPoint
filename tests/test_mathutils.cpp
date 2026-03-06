@@ -1,5 +1,5 @@
-#include "TestRunner.h"
-#include "MathUtils.h"
+#include "test_runner.h"
+#include "math_utils.h"
 #include <vector>
 
 TEST(MathUtils_Distance_PythagoreanTriple) {

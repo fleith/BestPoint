@@ -1,5 +1,5 @@
-#include "TestRunner.h"
-#include "GAUtils.h"
+#include "test_runner.h"
+#include "ga_utils.h"
 
 static Fitness makeGAFitness() {
     Fitness f;

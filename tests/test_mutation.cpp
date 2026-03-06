@@ -1,5 +1,5 @@
-#include "TestRunner.h"
-#include "Mutation.h"
+#include "test_runner.h"
+#include "mutation.h"
 
 TEST(Mutation_Mutate_ReturnsChromosome) {
     Chromosome c(50.0, 50.0);

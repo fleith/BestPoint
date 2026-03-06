@@ -1,19 +1,19 @@
 CXX      = clang++
-CXXFLAGS = -std=c++11 -Wall -Isrc -IApp -IInterface -ICLI
+CXXFLAGS = -std=c++11 -Wall -Isrc -Iapp -Iinterface -Icli
 
 SRCS = \
-	src/Chromosome.cpp \
-	src/Point.cpp \
-	src/Population.cpp \
-	src/Fitness.cpp \
-	src/MathUtils.cpp \
-	src/Selection.cpp \
-	src/Crossover.cpp \
-	src/Mutation.cpp \
-	src/GAUtils.cpp \
-	App/App.cpp \
-	Interface/UICli.cpp \
-	CLI/main.cpp
+	src/chromosome.cpp \
+	src/point.cpp \
+	src/population.cpp \
+	src/fitness.cpp \
+	src/math_utils.cpp \
+	src/selection.cpp \
+	src/crossover.cpp \
+	src/mutation.cpp \
+	src/ga_utils.cpp \
+	app/app.cpp \
+	interface/ui_cli.cpp \
+	cli/main.cpp
 
 TARGET = BestPoint
 

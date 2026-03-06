@@ -14,15 +14,15 @@ echo Building tests...
 
 cl.exe /std:c++14 /EHsc /W2 /nologo ^
     /Isrc /Itests ^
-    src\Chromosome.cpp ^
-    src\Point.cpp ^
-    src\Population.cpp ^
-    src\Fitness.cpp ^
-    src\MathUtils.cpp ^
-    src\Selection.cpp ^
-    src\Crossover.cpp ^
-    src\Mutation.cpp ^
-    src\GAUtils.cpp ^
+    src\chromosome.cpp ^
+    src\point.cpp ^
+    src\population.cpp ^
+    src\fitness.cpp ^
+    src\math_utils.cpp ^
+    src\selection.cpp ^
+    src\crossover.cpp ^
+    src\mutation.cpp ^
+    src\ga_utils.cpp ^
     tests\test_chromosome.cpp ^
     tests\test_point.cpp ^
     tests\test_mathutils.cpp ^

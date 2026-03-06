@@ -1,5 +1,5 @@
-#include "TestRunner.h"
-#include "Selection.h"
+#include "test_runner.h"
+#include "selection.h"
 
 static Fitness makeSelFitness() {
     Fitness f;

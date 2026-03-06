@@ -13,19 +13,19 @@ cd /d "%~dp0"
 echo Building BestPoint...
 
 cl.exe /std:c++14 /EHsc /W2 /nologo ^
-    /Isrc /IApp /IInterface /ICLI ^
-    src\Chromosome.cpp ^
-    src\Point.cpp ^
-    src\Population.cpp ^
-    src\Fitness.cpp ^
-    src\MathUtils.cpp ^
-    src\Selection.cpp ^
-    src\Crossover.cpp ^
-    src\Mutation.cpp ^
-    src\GAUtils.cpp ^
-    App\App.cpp ^
-    Interface\UICli.cpp ^
-    CLI\main.cpp ^
+    /Isrc /Iapp /Iinterface /Icli ^
+    src\chromosome.cpp ^
+    src\point.cpp ^
+    src\population.cpp ^
+    src\fitness.cpp ^
+    src\math_utils.cpp ^
+    src\selection.cpp ^
+    src\crossover.cpp ^
+    src\mutation.cpp ^
+    src\ga_utils.cpp ^
+    app\app.cpp ^
+    interface\ui_cli.cpp ^
+    cli\main.cpp ^
     /Fe:BestPoint.exe
 
 if errorlevel 1 (

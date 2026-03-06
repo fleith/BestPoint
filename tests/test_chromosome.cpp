@@ -1,5 +1,5 @@
-#include "TestRunner.h"
-#include "Chromosome.h"
+#include "test_runner.h"
+#include "chromosome.h"
 
 TEST(Chromosome_ConstructorSetsCoords) {
     Chromosome c(3.5, 7.2);

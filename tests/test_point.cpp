@@ -1,5 +1,5 @@
-#include "TestRunner.h"
-#include "Point.h"
+#include "test_runner.h"
+#include "point.h"
 
 TEST(Point_DoubleConstructor) {
     Point p(4.0, 8.0);

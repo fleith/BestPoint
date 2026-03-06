@@ -1,5 +1,5 @@
-#include "TestRunner.h"
-#include "Crossover.h"
+#include "test_runner.h"
+#include "crossover.h"
 
 TEST(Crossover_Cross_ResultInRange) {
     Chromosome a(10.0, 20.0), b(30.0, 40.0);

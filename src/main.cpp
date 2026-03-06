@@ -6,13 +6,13 @@
 #include <ctime>
 #include <cstdlib>
 
-#include "Chromosome.h"
-#include "Crossover.h"
-#include "Fitness.h"
-#include "Mutation.h"
-#include "Point.h"
-#include "Population.h"
-#include "Selection.h"
+#include "chromosome.h"
+#include "crossover.h"
+#include "fitness.h"
+#include "mutation.h"
+#include "point.h"
+#include "population.h"
+#include "selection.h"
 
 int main(int argc, char* argv[])
 {
