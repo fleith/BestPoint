@@ -69,6 +69,24 @@ Run from any terminal: cmd, PowerShell, or Git Bash (`cmd //c build.bat`).
 
 ---
 
+## HTML Visualiser
+
+Add `--html <file>` to any run to generate a self-contained interactive page — no server or library required, just open it in any browser.
+
+```bat
+BestPoint.exe -p 80 -g 150 --points 5 --html result.html
+```
+
+The page shows:
+
+- **Population canvas** — base points (orange), all individuals (blue), best (green), worst (red) for each generation
+- **Fitness chart** — best / avg / worst fitness curves over all generations
+- **Slider + Play button** — scrub through or animate the evolution frame by frame
+
+A ready-to-open example is included at [`docs/example.html`](docs/example.html).
+
+---
+
 ## Tests
 
 ```bat
