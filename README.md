@@ -20,7 +20,7 @@ coordinates (x, y) that simultaneously minimise:
 
 The two objectives are combined into a single fitness score:
 
-    fitness = (normalizer * 2 * N) / (totalDist * fdist + meanDev * fdist2)
+    fitness = (normalizer * 2 * N) / (totalDist * fdist + meanDev * N * fdist2 + epsilon)
 
 Higher fitness is better. The algorithm evolves a population of candidate
 points over multiple generations until the best individual is returned.

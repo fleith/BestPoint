@@ -27,8 +27,10 @@ double Fitness::Evaluate(Chromosome& chromosome)
     }
 
     double meanDev   = MathUtils::MeanDeviation(distances);
-    double numerator = normalizer * (points.size() * 2);
-    double score     = numerator / ((totalDist * distanceFactor) + (meanDev * distributionFactor));
+    int    N         = static_cast<int>(points.size());
+    double numerator = normalizer * (N * 2);
+    double denom     = (totalDist * distanceFactor) + (meanDev * N * distributionFactor) + 1e-9;
+    double score     = numerator / denom;
 
     return score;
 }
