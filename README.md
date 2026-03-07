@@ -1,6 +1,7 @@
 # BestPoint
 
 [![CI](https://github.com/fleith/BestPoint/actions/workflows/ci.yml/badge.svg)](https://github.com/fleith/BestPoint/actions/workflows/ci.yml)
+[![Live demo](https://img.shields.io/badge/demo-live-brightgreen)](https://fleith.github.io/BestPoint/)
 
 A Genetic Algorithm that finds the optimal 2D point minimising total distance
 and spread to a set of base points.
@@ -83,7 +84,7 @@ The page shows:
 - **Fitness chart** — best / avg / worst fitness curves over all generations
 - **Slider + Play button** — scrub through or animate the evolution frame by frame
 
-A ready-to-open example is included at [`docs/example.html`](docs/example.html).
+A live example is hosted on GitHub Pages: **[Open Visualiser →](https://fleith.github.io/BestPoint/)**
 
 ---
 
