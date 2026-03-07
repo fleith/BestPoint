@@ -1,6 +1,7 @@
 #ifndef CLICONFIG_H_
 #define CLICONFIG_H_
 
+#include <string>
 #include "ui.h"
 
 struct CLIConfig {
@@ -15,6 +16,7 @@ struct CLIConfig {
     double distributionFactor = 1.0;
     CrossoverMethod crossoverMethod = RANDOM;
     SelectionMethod selectionMethod = TRUNCATION;
+    std::string     htmlFile        = "";
 };
 
 extern CLIConfig cliConfig;

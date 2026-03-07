@@ -103,6 +103,7 @@ Options:
                           random | sequential
        --fdist  <f>     Distance factor          (default: 1.0)
        --fdist2 <f>     Distribution factor      (default: 1.0)
+       --html   <file>  Write HTML visualiser    (e.g. result.html)
   -h,  --help           Show this help
 ```
 
@@ -111,6 +112,9 @@ Options:
 ```bat
 REM Default run
 BestPoint.exe
+
+REM Generate interactive HTML visualiser
+BestPoint.exe --html result.html
 
 REM Larger search space, more generations, roulette selection
 BestPoint.exe -p 100 -g 500 --maxx 500 --maxy 500 --points 10 --sel roulette

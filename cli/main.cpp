@@ -36,6 +36,7 @@ static void printHelp(const char* prog)
         "                          random | sequential\n"
         "       --fdist  <f>     Distance factor          (default: 1.0)\n"
         "       --fdist2 <f>     Distribution factor      (default: 1.0)\n"
+        "       --html   <file>  Write HTML visualiser    (e.g. result.html)\n"
         "  -h,  --help           Show this help\n",
         prog
     );
@@ -116,6 +117,10 @@ static bool parseArgs(int argc, char* argv[])
             else if (strcmp(v, "sequential") == 0) cliConfig.crossoverMethod = SEQUENTIAL;
             else { std::fprintf(stderr, "error: unknown crossover type '%s'\n", v); return false; }
         }
+        else if (strcmp(arg, "--html") == 0) {
+            const char* v = next(arg); if (!v) return false;
+            cliConfig.htmlFile = v;
+        }
         else {
             std::fprintf(stderr, "error: unknown option '%s'\n", arg);
             return false;
@@ -146,6 +151,8 @@ static const char* crossoverName(CrossoverMethod m)
 }
 
 // ---------------------------------------------------------------------------
+
+extern void WriteHtmlReport(const std::string& filename);
 
 int main(int argc, char* argv[])
 {
@@ -194,6 +201,9 @@ int main(int argc, char* argv[])
     Chromosome best = app.CMDGetBest();
     std::printf("  Best individual : (%.4f, %.4f)\n", best.X(), best.Y());
     separator();
+
+    if (!cliConfig.htmlFile.empty())
+        WriteHtmlReport(cliConfig.htmlFile);
 
     return 0;
 }
