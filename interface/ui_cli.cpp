@@ -139,12 +139,41 @@ void UI::GenerateBasePoints()       { app.CMDGenerateBasePoints(); }
 // HTML visualiser
 // ---------------------------------------------------------------------------
 
+static const char* selectionMethodName()
+{
+    switch (cliConfig.selectionMethod) {
+        case TRUNCATION:          return "truncation";
+        case ROULETTE:            return "roulette";
+        case RANK:                return "rank";
+        case ELITIST_REPLACEMENT: return "elitist-replacement";
+        case HYBRID:              return "hybrid";
+        default:                  return "?";
+    }
+}
+
+static const char* crossoverMethodName()
+{
+    return cliConfig.crossoverMethod == RANDOM ? "random" : "sequential";
+}
+
 static std::string buildJson()
 {
     std::ostringstream j;
     j << std::fixed << std::setprecision(4);
 
-    j << "{\"bounds\":{\"minX\":" << cliConfig.minX << ",\"maxX\":" << cliConfig.maxX
+    j << "{";
+    j << "\"config\":{";
+    j << "\"population\":"        << cliConfig.populationSize   << ",";
+    j << "\"generations\":"       << cliConfig.maxGenerations   << ",";
+    j << "\"crossoverRate\":"     << cliConfig.crossoverRate    << ",";
+    j << "\"mutationRate\":"      << cliConfig.mutationRate     << ",";
+    j << "\"selection\":\""       << selectionMethodName()      << "\",";
+    j << "\"crossoverType\":\""   << crossoverMethodName()      << "\",";
+    j << "\"distanceFactor\":"    << cliConfig.distanceFactor   << ",";
+    j << "\"distributionFactor\":" << cliConfig.distributionFactor;
+    j << "},";
+
+    j << "\"bounds\":{\"minX\":" << cliConfig.minX << ",\"maxX\":" << cliConfig.maxX
       << ",\"minY\":" << cliConfig.minY << ",\"maxY\":" << cliConfig.maxY << "},";
 
     j << "\"basePoints\":[";
@@ -203,6 +232,14 @@ button:hover{background:#30363d}
 .legend{display:flex;gap:14px;font-size:.76rem;color:#8b949e}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;
      vertical-align:middle;margin-right:3px}
+.cfg{width:620px;background:#161b22;border:1px solid #30363d;border-radius:6px;
+     padding:12px 16px}
+.cfg-title{font-size:.78rem;color:#58a6ff;font-weight:600;
+           text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+.cfg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 16px}
+.cfg-item{display:flex;flex-direction:column;gap:2px}
+.cfg-key{font-size:.7rem;color:#6e7681;text-transform:uppercase;letter-spacing:.4px}
+.cfg-val{font-size:.84rem;color:#c9d1d9;font-weight:500}
 </style>
 </head>
 <body>
@@ -225,6 +262,10 @@ button:hover{background:#30363d}
   <span><span class="dot" style="background:rgba(88,166,255,.6)"></span>Individual</span>
   <span><span class="dot" style="background:#3fb950"></span>Best</span>
   <span><span class="dot" style="background:#f85149"></span>Worst</span>
+</div>
+<div class="cfg">
+  <div class="cfg-title">Run Configuration</div>
+  <div class="cfg-grid" id="cfgGrid"></div>
 </div>
 <script>
 const D = /*DATA*/;
@@ -353,6 +394,25 @@ btn.addEventListener('click', ()=>{
 });
 
 render(0);
+
+// ---- config panel ----
+const cfgItems = [
+  ['Population',    D.config.population],
+  ['Generations',   D.config.generations],
+  ['Crossover',     D.config.crossoverRate + '%'],
+  ['Mutation',      D.config.mutationRate + '%'],
+  ['Selection',     D.config.selection],
+  ['Crossover type',D.config.crossoverType],
+  ['Dist factor',   D.config.distanceFactor.toFixed(2)],
+  ['Distr factor',  D.config.distributionFactor.toFixed(2)],
+  ['Bounds X',      `[${D.bounds.minX}, ${D.bounds.maxX}]`],
+  ['Bounds Y',      `[${D.bounds.minY}, ${D.bounds.maxY}]`],
+  ['Base points',   D.basePoints.length],
+];
+const grid = document.getElementById('cfgGrid');
+cfgItems.forEach(([k,v])=>{
+  grid.innerHTML += `<div class="cfg-item"><span class="cfg-key">${k}</span><span class="cfg-val">${v}</span></div>`;
+});
 </script>
 </body>
 </html>
