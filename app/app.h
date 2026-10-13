@@ -14,6 +14,7 @@ public:
     App();
 
     void CMDInit();
+    bool ConfigValid() const { return configValid; }
 
     void CMDGeneratePopulationAuto();
     void CMDGeneratePopulationManual();
@@ -57,3 +58,4 @@ private:
 extern App app;
 
 #endif /* APP_H_ */
+

@@ -10,6 +10,7 @@ double MathUtils::Distance(Point& a, Point& b)
 
 double MathUtils::MeanDeviation(std::vector<double>& values)
 {
+    if (values.empty()) return 0.0;
     double sum = 0;
     for (std::vector<double>::iterator it = values.begin(); it != values.end(); it++)
         sum += *it;
@@ -21,3 +22,4 @@ double MathUtils::MeanDeviation(std::vector<double>& values)
 
     return deviationSum / values.size();
 }
+

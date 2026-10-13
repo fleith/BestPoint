@@ -1,6 +1,7 @@
 #include "crossover.h"
 #include <cmath>
 #include <stdlib.h>
+#include <cstdlib>
 #include "mutation.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -99,8 +100,8 @@ Chromosome Crossover::Cross(Chromosome parentA, Chromosome parentB)
     int bx = static_cast<int>(parentB.X());
     int by = static_cast<int>(parentB.Y());
 
-    int deltaX = abs(ax - bx);
-    int deltaY = abs(ay - by);
+    long long deltaX = std::llabs(static_cast<long long>(ax) - bx);
+    long long deltaY = std::llabs(static_cast<long long>(ay) - by);
 
     int offsetX = deltaX ? rand() % deltaX : 0;
     int offsetY = deltaY ? rand() % deltaY : 0;
@@ -110,3 +111,4 @@ Chromosome Crossover::Cross(Chromosome parentA, Chromosome parentB)
 
     return Chromosome(newX, newY);
 }
+

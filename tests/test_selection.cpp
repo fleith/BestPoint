@@ -79,3 +79,37 @@ TEST(Selection_ByTruncation_BestIsIncluded) {
     }
     CHECK(foundGood);
 }
+
+
+TEST(Selection_ExactMatchAndZeroWeights) {
+    Fitness f;
+    f.SetNormalizer(200.0);
+    f.AddPoint(Point(0, 0));
+    Population pop;
+    for (int i = 0; i < 10; ++i) pop.Add(Chromosome(0, 0));
+    Selection exact(f);
+    CHECK_EQ(exact.ByRoulette(pop).Size(), 10);
+    CHECK_EQ(exact.ByHybrid(pop).Size(), 10);
+    f.ClearPoints();
+    Selection zero(f);
+    CHECK_EQ(zero.ByRoulette(pop).Size(), 10);
+    CHECK_EQ(zero.ByHybrid(pop).Size(), 10);
+}
+
+TEST(Selection_RouletteSamplesBeyondFirstIndividual) {
+    Fitness f;
+    f.SetNormalizer(200.0);
+    f.AddPoint(Point(0, 0));
+    Population pop;
+    // Equal weights, each larger than Windows RAND_MAX after old scaling.
+    for (int i = 0; i < 100; ++i)
+        pop.Add(Chromosome(i % 2 == 0 ? 1 : -1, 0));
+    Selection selection(f);
+    Population selected = selection.ByRoulette(pop);
+    bool positive = false, negative = false;
+    for (int i = 0; i < selected.Size(); ++i) {
+        positive = positive || selected[i].X() > 0;
+        negative = negative || selected[i].X() < 0;
+    }
+    CHECK(positive && negative);
+}
