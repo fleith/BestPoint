@@ -210,3 +210,19 @@ interactive parameter controls.
 
 - **CLI build:** Visual Studio 2022 (any edition)
 - **GUI build:** Embarcadero RAD Studio (Borland C++ Builder successor)
+
+
+## Cross-platform build and regression tests
+
+With CMake, a C++11 compiler, and Python 3 installed:
+
+```sh
+cmake -S . -B build -DBUILD_TESTING=ON
+cmake --build build --config Release
+ctest --test-dir build -C Release --output-on-failure
+```
+
+CI builds the CLI and tests on Windows (MSVC) and Linux (GCC).
+Bounds must have positive width, counts must be positive, and fitness factors
+must be finite and nonnegative with at least one positive factor. Invalid input
+returns a nonzero exit status. Offspring are clamped to the configured bounds.

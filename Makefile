@@ -1,4 +1,4 @@
-CXX      = clang++
+CXX      = c++
 CXXFLAGS = -std=c++11 -Wall -Isrc -Iapp -Iinterface -Icli
 
 SRCS = \
@@ -24,3 +24,4 @@ $(TARGET): $(SRCS)
 
 clean:
 	rm -f $(TARGET)
+

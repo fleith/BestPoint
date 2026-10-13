@@ -2,6 +2,10 @@
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
+#include <cerrno>
+#include <climits>
+#include <cmath>
+#include <stdexcept>
 
 #include "ui.h"
 #include "app.h"
@@ -42,6 +46,26 @@ static void printHelp(const char* prog)
     );
 }
 
+static int parseInt(const char* text)
+{
+    char* end = nullptr;
+    errno = 0;
+    long value = std::strtol(text, &end, 10);
+    if (errno || end == text || *end || value < INT_MIN || value > INT_MAX)
+        throw std::invalid_argument("invalid integer value");
+    return static_cast<int>(value);
+}
+
+static double parseDouble(const char* text)
+{
+    char* end = nullptr;
+    errno = 0;
+    double value = std::strtod(text, &end);
+    if (errno || end == text || *end || !std::isfinite(value))
+        throw std::invalid_argument("invalid numeric value");
+    return value;
+}
+
 static bool parseArgs(int argc, char* argv[])
 {
     for (int i = 1; i < argc; i++) {
@@ -60,47 +84,47 @@ static bool parseArgs(int argc, char* argv[])
         }
         else if (strcmp(arg, "-p") == 0 || strcmp(arg, "--pop") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.populationSize = atoi(v);
+            cliConfig.populationSize = parseInt(v);
         }
         else if (strcmp(arg, "-g") == 0 || strcmp(arg, "--gen") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.maxGenerations = atoi(v);
+            cliConfig.maxGenerations = parseInt(v);
         }
         else if (strcmp(arg, "-c") == 0 || strcmp(arg, "--cross") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.crossoverRate = atoi(v);
+            cliConfig.crossoverRate = parseInt(v);
         }
         else if (strcmp(arg, "-m") == 0 || strcmp(arg, "--mut") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.mutationRate = atoi(v);
+            cliConfig.mutationRate = parseInt(v);
         }
         else if (strcmp(arg, "--minx") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.minX = atoi(v);
+            cliConfig.minX = parseInt(v);
         }
         else if (strcmp(arg, "--maxx") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.maxX = atoi(v);
+            cliConfig.maxX = parseInt(v);
         }
         else if (strcmp(arg, "--miny") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.minY = atoi(v);
+            cliConfig.minY = parseInt(v);
         }
         else if (strcmp(arg, "--maxy") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.maxY = atoi(v);
+            cliConfig.maxY = parseInt(v);
         }
         else if (strcmp(arg, "--points") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.basePointCount = atoi(v);
+            cliConfig.basePointCount = parseInt(v);
         }
         else if (strcmp(arg, "--fdist") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.distanceFactor = atof(v);
+            cliConfig.distanceFactor = parseDouble(v);
         }
         else if (strcmp(arg, "--fdist2") == 0) {
             const char* v = next(arg); if (!v) return false;
-            cliConfig.distributionFactor = atof(v);
+            cliConfig.distributionFactor = parseDouble(v);
         }
         else if (strcmp(arg, "--sel") == 0) {
             const char* v = next(arg); if (!v) return false;
@@ -156,11 +180,22 @@ extern void WriteHtmlReport(const std::string& filename);
 
 int main(int argc, char* argv[])
 {
-    if (!parseArgs(argc, argv)) {
-        printHelp(argv[0]);
+    for (int i = 1; i < argc; ++i) {
+        if (std::strcmp(argv[i], "--help") == 0 || std::strcmp(argv[i], "-h") == 0) {
+            printHelp(argv[0]);
+            return 0;
+        }
+    }
+    try {
+        if (!parseArgs(argc, argv)) {
+            printHelp(argv[0]);
+            return 1;
+        }
+
+    } catch (const std::exception& error) {
+        std::fprintf(stderr, "error: %s\n", error.what());
         return 1;
     }
-
     srand(static_cast<unsigned>(time(0)));
 
     separator();
@@ -180,6 +215,10 @@ int main(int argc, char* argv[])
     separator();
 
     UI::InitializeApp();
+    if (!app.ConfigValid()) {
+        std::fprintf(stderr, "error: invalid configuration (check bounds, counts, rates and fitness factors)\n");
+        return 1;
+    }
     UI::GenerateBasePoints();
 
     std::printf("  Base points:\n");
@@ -207,3 +246,4 @@ int main(int argc, char* argv[])
 
     return 0;
 }
+

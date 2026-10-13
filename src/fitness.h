@@ -16,9 +16,9 @@ public:
     void  ClearPoints()      { points.clear(); }
     Point operator[](int i)  { return points[i]; }
 
-    double Evaluate(Chromosome& chromosome);
+    double Evaluate(const Chromosome& chromosome);
 
-    bool operator()(Chromosome& a, Chromosome& b);
+    bool operator()(const Chromosome& a, const Chromosome& b);
 
     void SetDistanceFactor(double factor);
     void SetDistributionFactor(double factor);
@@ -33,3 +33,4 @@ private:
 };
 
 #endif /* FITNESS_H_ */
+

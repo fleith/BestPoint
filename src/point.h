@@ -7,7 +7,7 @@ class Point
 {
 public:
     ~Point();
-    Point(Chromosome& chromosome);
+    Point(const Chromosome& chromosome);
     Point(double x, double y);
 
     double X();
@@ -19,3 +19,4 @@ private:
 };
 
 #endif /* POINT_H_ */
+

@@ -8,6 +8,9 @@ App app;
 #include "selection.h"
 #include "crossover.h"
 #include "ui.h"
+#include <algorithm>
+#include <cmath>
+#include <climits>
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -31,7 +34,7 @@ void App::CMDInit()
 
     fitness.SetDistanceFactor(UI::DistanceFactor());
     fitness.SetDistributionFactor(UI::DistributionFactor());
-    double normRange = (maxX - minX) + (maxY - minY);
+    double normRange = (double(maxX) - minX) + (double(maxY) - minY);
     fitness.SetNormalizer(normRange);
 
     ValidateConfig();
@@ -173,8 +176,13 @@ Point App::CMDGetBasePoint(int i)
 void App::ValidateConfig()
 {
     configValid = true;
-    if (maxX < minX)                              configValid = false;
-    if (maxY < minY)                              configValid = false;
+    if (UI::BasePointCount() <= 0) configValid = false;
+    double distance = UI::DistanceFactor(), spread = UI::DistributionFactor();
+    if (!std::isfinite(distance) || !std::isfinite(spread) ||
+        distance < 0.0 || spread < 0.0 || (distance == 0.0 && spread == 0.0))
+        configValid = false;
+    if (maxX <= minX || double(maxX) - minX > INT_MAX)                              configValid = false;
+    if (maxY <= minY || double(maxY) - minY > INT_MAX)                              configValid = false;
     if (populationSize <= 0)                      configValid = false;
     if (maxGenerations <= 0)                      configValid = false;
     if (crossoverRate < 0 || crossoverRate > 100) configValid = false;
@@ -236,5 +244,13 @@ void App::Step()
         crossed = Crossover::CrossSequential(selected, crossoverRate, mutationRate);
 
     if (selMethod == TRUNCATION) crossed.Add(elite);
-    populations.back() = crossed;
+    // Enforce the search domain after mutation, including axis swaps.
+    Population bounded;
+    for (int i = 0; i < crossed.Size(); ++i) {
+        Chromosome child = crossed[i];
+        bounded.Add(Chromosome(std::max(double(minX), std::min(double(maxX), child.X())),
+                               std::max(double(minY), std::min(double(maxY), child.Y()))));
+    }
+    populations.back() = bounded;
 }
+

@@ -3,7 +3,7 @@
 
 Fitness::~Fitness() {}
 
-Fitness::Fitness() {}
+Fitness::Fitness() : distanceFactor(1.0), distributionFactor(1.0), normalizer(1.0) {}
 
 void Fitness::AddPoint(Point pt)
 {
@@ -14,8 +14,9 @@ void Fitness::SetDistanceFactor(double factor)      { distanceFactor = factor; }
 void Fitness::SetDistributionFactor(double factor)  { distributionFactor = factor; }
 void Fitness::SetNormalizer(double value)           { normalizer = value; }
 
-double Fitness::Evaluate(Chromosome& chromosome)
+double Fitness::Evaluate(const Chromosome& chromosome)
 {
+    if (points.empty()) return 0.0;
     Point pos(chromosome);
 
     double totalDist = 0;
@@ -35,7 +36,8 @@ double Fitness::Evaluate(Chromosome& chromosome)
     return score;
 }
 
-bool Fitness::operator()(Chromosome& a, Chromosome& b)
+bool Fitness::operator()(const Chromosome& a, const Chromosome& b)
 {
     return Evaluate(a) > Evaluate(b);
 }
+
